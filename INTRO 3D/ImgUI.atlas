@@ -1,6 +1,9 @@
 images {
   image: "/tile_0000.png"
 }
+images {
+  image: "/Images/tile_0080.png"
+}
 animations {
   id: "Animacion Random"
   images {
