@@ -39,6 +39,7 @@ function on_message(self, message_id, message, sender)
 	-- Remove this function if not needed
 	if message_id == hash("trigger_response") then
 		if message.enter then
+			go.delete(message.other_id)
 			print("Acabo de tocar el objeto: " .. tostring(message.other_id))
 		else
 			print("Me alejé del objeto: " .. tostring(message.other_id))
