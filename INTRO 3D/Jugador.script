@@ -14,7 +14,7 @@ function update(self, dt)
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed
 	local posicion_actual = go.get_position()
-	posicion_actual = posicion_actual + self.direccion
+	posicion_actual = posicion_actual + (self.direccion * dt)
 	go.set_position(posicion_actual)
 end
 
@@ -48,27 +48,27 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("arriba") then
+	if action_id == hash("adelante") then
 		if action.pressed then 
-			self.direccion.y = 1
+			self.direccion.z = 10
 		elseif action.released then
-			self.direccion.y = 0
+			self.direccion.z = 0
 		end
-	elseif action_id == hash("abajo") then
+	elseif action_id == hash("atras") then
 		if action.pressed then 
-			self.direccion.y = -1
+			self.direccion.z = -10
 		elseif action.released then
-			self.direccion.y = 0
+			self.direccion.z = 0
 		end
 	elseif action_id == hash("izq") then
 		if action.pressed then 
-			self.direccion.x = -1
+			self.direccion.x = 10
 		elseif action.released then
 			self.direccion.x = 0
 		end
 	elseif action_id == hash("der") then
 		if action.pressed then 
-			self.direccion.x = 1
+			self.direccion.x = -10
 		elseif action.released then
 			self.direccion.x = 0
 		end
